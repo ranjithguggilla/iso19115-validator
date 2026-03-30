@@ -1,0 +1,61 @@
+# Oceanographic metadata rules
+#
+# Custom validation rules for oceanographic data packages.
+# Load with: isolint check --rules isolint/rules/oceanographic.yaml <path>
+
+name: oceanographic
+version: "1.0"
+description: >
+  Rules for validating oceanographic observation metadata.
+  Ensures temporal/spatial coverage, instrument details,
+  and data provenance meet community standards.
+
+rules:
+  - id: OCEAN-001
+    description: "Dataset must include temporal extent"
+    severity: error
+    check:
+      type: xpath_exists
+      xpath: "//gmd:EX_TemporalExtent"
+    suggestion: "Add temporal extent with start/end dates for the observation period."
+
+  - id: OCEAN-002
+    description: "Dataset must include geographic bounding box"
+    severity: error
+    check:
+      type: xpath_exists
+      xpath: "//gmd:EX_GeographicBoundingBox"
+    suggestion: "Add a geographic bounding box covering the observation area."
+
+  - id: OCEAN-003
+    description: "Metadata must have topic category 'oceans'"
+    severity: warning
+    check:
+      type: xpath_exists
+      xpath: "//gmd:topicCategory/gmd:MD_TopicCategoryCode[text()='oceans']"
+    suggestion: "Add topicCategory with value 'oceans'."
+
+  - id: OCEAN-004
+    description: "Dataset should reference instrument/platform"
+    severity: warning
+    check:
+      type: xpath_exists
+      xpath: "//gmd:platform"
+    suggestion: "Document the observation platform (buoy, ship, mooring, etc.)."
+
+  - id: OCEAN-005
+    description: "File identifier should use a DOI or UUID"
+    severity: info
+    check:
+      type: xpath_regex
+      xpath: "//gmd:fileIdentifier/gco:CharacterString"
+      pattern: "^(10\\.|[0-9a-f]{8}-)"
+    suggestion: "Use a DOI (10.xxxx/...) or UUID as the file identifier."
+
+  - id: OCEAN-006
+    description: "MANIFEST.sha256 must be present"
+    severity: warning
+    check:
+      type: file_exists
+      filename: "MANIFEST.sha256"
+    suggestion: "Include a SHA-256 manifest for data integrity verification."

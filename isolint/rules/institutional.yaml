@@ -1,0 +1,59 @@
+# Institutional metadata rules — template
+#
+# Customize these rules for your organization's metadata policies.
+# Copy this file and modify to match your institution's requirements.
+#
+# Rule check types:
+#   xpath_exists     — element must exist in XML
+#   xpath_not_empty  — element must have non-empty text
+#   xpath_regex      — element text must match pattern
+#   attr_exists      — NetCDF global attribute must exist
+#   attr_regex       — NetCDF attribute must match pattern
+#   file_exists      — named file must exist in directory
+
+name: institutional-template
+version: "1.0"
+description: >
+  Template for institutional metadata policies. Customize for
+  your organization's specific requirements.
+
+rules:
+  - id: INST-001
+    description: "Dataset must have a persistent identifier (DOI)"
+    severity: error
+    check:
+      type: xpath_exists
+      xpath: "//gmd:identifier//gco:CharacterString[starts-with(., '10.')]"
+    suggestion: "Register the dataset with a DOI provider (DataCite, Zenodo)."
+
+  - id: INST-002
+    description: "Contact information must include email"
+    severity: warning
+    check:
+      type: xpath_exists
+      xpath: "//gmd:CI_ResponsibleParty//gmd:electronicMailAddress/gco:CharacterString"
+    suggestion: "Add an email address to the responsible party contact."
+
+  - id: INST-003
+    description: "Abstract must be at least 100 characters"
+    severity: warning
+    check:
+      type: xpath_not_empty
+      xpath: "//gmd:abstract/gco:CharacterString"
+    suggestion: "Provide a descriptive abstract of at least 100 characters."
+
+  - id: INST-004
+    description: "NetCDF files must specify a license"
+    severity: error
+    check:
+      type: attr_exists
+      attribute: license
+    suggestion: "Add a 'license' global attribute (e.g., 'CC-BY-4.0')."
+
+  - id: INST-005
+    description: "Metadata language must be specified"
+    severity: info
+    check:
+      type: xpath_not_empty
+      xpath: "//gmd:language/gco:CharacterString"
+    suggestion: "Specify the metadata language (e.g., 'eng')."
