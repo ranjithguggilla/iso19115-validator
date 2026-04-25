@@ -1,0 +1,33 @@
+# Sample custom rules for testing
+#
+# Demonstrates the YAML rules DSL capabilities.
+
+name: sample-rules
+version: "1.0"
+description: Sample rule set for testing the YAML DSL engine.
+
+rules:
+  - id: SAMPLE-001
+    description: "Metadata must have a title"
+    severity: error
+    check:
+      type: xpath_exists
+      xpath: "//gmd:title/gco:CharacterString"
+    suggestion: "Add a descriptive title."
+
+  - id: SAMPLE-002
+    description: "File identifier should follow naming convention"
+    severity: warning
+    check:
+      type: xpath_regex
+      xpath: "//gmd:fileIdentifier/gco:CharacterString"
+      pattern: "^[a-z][a-z0-9-]+$"
+    suggestion: "Use lowercase alphanumeric with hyphens."
+
+  - id: SAMPLE-003
+    description: "README.txt should be present"
+    severity: info
+    check:
+      type: file_exists
+      filename: "README.txt"
+    suggestion: "Add a README.txt describing the data package."
