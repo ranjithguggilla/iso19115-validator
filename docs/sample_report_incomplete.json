@@ -1,0 +1,69 @@
+{
+  "target": "/Users/guggillaranjith/Documents/Claude/Projects/GRIIDC/iso19115-validator/examples/incomplete_metadata.xml",
+  "timestamp": "2026-05-15T22:03:22Z",
+  "passed": false,
+  "summary": {
+    "errors": 3,
+    "warnings": 0,
+    "info": 4,
+    "total_findings": 7
+  },
+  "findings": [
+    {
+      "severity": "error",
+      "message": "Required element missing: gmd:contact",
+      "source": "/Users/guggillaranjith/Documents/Claude/Projects/GRIIDC/iso19115-validator/examples/incomplete_metadata.xml",
+      "xpath": "//gmd:contact",
+      "rule_id": "XSD-010",
+      "suggestion": "Add the required element gmd:contact to the metadata record."
+    },
+    {
+      "severity": "error",
+      "message": "Required element missing: gmd:dateStamp",
+      "source": "/Users/guggillaranjith/Documents/Claude/Projects/GRIIDC/iso19115-validator/examples/incomplete_metadata.xml",
+      "xpath": "//gmd:dateStamp",
+      "rule_id": "XSD-010",
+      "suggestion": "Add the required element gmd:dateStamp to the metadata record."
+    },
+    {
+      "severity": "error",
+      "message": "Required element missing: gmd:identificationInfo",
+      "source": "/Users/guggillaranjith/Documents/Claude/Projects/GRIIDC/iso19115-validator/examples/incomplete_metadata.xml",
+      "xpath": "//gmd:identificationInfo",
+      "rule_id": "XSD-010",
+      "suggestion": "Add the required element gmd:identificationInfo to the metadata record."
+    },
+    {
+      "severity": "info",
+      "message": "Recommended element missing: gmd:abstract",
+      "source": "/Users/guggillaranjith/Documents/Claude/Projects/GRIIDC/iso19115-validator/examples/incomplete_metadata.xml",
+      "xpath": "//gmd:identificationInfo//gmd:abstract/gco:CharacterString",
+      "rule_id": "XSD-020",
+      "suggestion": "Consider adding gmd:abstract for better metadata completeness."
+    },
+    {
+      "severity": "info",
+      "message": "Recommended element missing: gmd:topicCategory",
+      "source": "/Users/guggillaranjith/Documents/Claude/Projects/GRIIDC/iso19115-validator/examples/incomplete_metadata.xml",
+      "xpath": "//gmd:identificationInfo//gmd:topicCategory",
+      "rule_id": "XSD-020",
+      "suggestion": "Consider adding gmd:topicCategory for better metadata completeness."
+    },
+    {
+      "severity": "info",
+      "message": "Recommended element missing: gmd:extent",
+      "source": "/Users/guggillaranjith/Documents/Claude/Projects/GRIIDC/iso19115-validator/examples/incomplete_metadata.xml",
+      "xpath": "//gmd:identificationInfo//gmd:extent",
+      "rule_id": "XSD-020",
+      "suggestion": "Consider adding gmd:extent for better metadata completeness."
+    },
+    {
+      "severity": "info",
+      "message": "Recommended element missing: gmd:dataQualityInfo",
+      "source": "/Users/guggillaranjith/Documents/Claude/Projects/GRIIDC/iso19115-validator/examples/incomplete_metadata.xml",
+      "xpath": "//gmd:dataQualityInfo",
+      "rule_id": "XSD-020",
+      "suggestion": "Consider adding gmd:dataQualityInfo for better metadata completeness."
+    }
+  ]
+}
