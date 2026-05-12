@@ -1,5 +1,5 @@
 {
-  "target": "/Users/guggillaranjith/Documents/Claude/Projects/GRIIDC/iso19115-validator/examples/valid_metadata.xml",
+  "target": "examples/valid_metadata.xml",
   "timestamp": "2026-05-15T22:03:22Z",
   "passed": true,
   "summary": {
@@ -12,7 +12,7 @@
     {
       "severity": "info",
       "message": "Recommended element missing: gmd:dataQualityInfo",
-      "source": "/Users/guggillaranjith/Documents/Claude/Projects/GRIIDC/iso19115-validator/examples/valid_metadata.xml",
+      "source": "examples/valid_metadata.xml",
       "xpath": "//gmd:dataQualityInfo",
       "rule_id": "XSD-020",
       "suggestion": "Consider adding gmd:dataQualityInfo for better metadata completeness."
