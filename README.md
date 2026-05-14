@@ -8,6 +8,10 @@ Validates XML metadata records and NetCDF file attributes against international 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
+![Validation Report](docs/screenshots/validation_report.png)
+
+![FAIR Score](docs/screenshots/fair_score.png)
+
 ---
 
 ## Why This Exists
